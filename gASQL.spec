@@ -32,7 +32,7 @@ pisaæ ca³ych komend SQL - ale nadal mo¿e).
 %setup -q
 
 %build
-gettextize --copy --force
+%{__gettextize}
 %configure
 %{__make}
 
