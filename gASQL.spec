@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz examples/
 %attr(755,root,root) %{_bindir}/gasql
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 %{_applnkdir}/Office/Databases/gasql.desktop
 %dir %{_datadir}/gASQL/
 %dir %{_datadir}/gASQL/plugins
