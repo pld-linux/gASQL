@@ -1,69 +1,55 @@
-# Note that this is NOT a relocatable package
-# defaults for redhat
-%define name	gASQL
-%define ver	0.5.3
-%define prefix     /usr
-%define sysconfdir /etc
+Summary:	gASQL - program which helps administer a DBMS database using the gnome-db framework
+Name:		gASQL
+Version:	0.5.3
+Release:	1
+License:	GPL
+Group:		X11/GNOME/Applications
+Group(pl):	X11/GNOME/Aplikacje
+Source0:	http://malerba.linuxave.net/src/%{name}-%{version}.tar.gz
+URL:		http://malerba.linuxave.net/
+BuildRequires:	gettext-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define  RELEASE 1
-%define  rel     %{?CUSTOM_RELEASE} %{!?CUSTOM_RELEASE:%RELEASE}
-
-Summary: gASQL
-Name: 		%name
-Version:	%ver
-Release: 	%rel
-Copyright: 	GPL
-Group: 		X11/GNOME/Applications
-Source:		%{name}-%{ver}.tar.gz
-BuildRoot: 	/tmp/%{name}-%{ver}-root
-URL: 		http://malerba.linuxave.net/
-DocDir: 	%{prefix}/doc
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+%define		sysconfdir	/etc/X11/GNOME
 
 %description
-gASQL is a database admin tool working with gnome-db
+gASQL is a program which helps administer a DBMS database using the
+gnome-db framework. Basically, it memorizes all the structure of the
+database, and some queries, and does the SQL queries instead of the
+user (not having to type all over again those SQL commands, although
+it is still possible to do so).
 
 %prep
-%setup
+%setup -q
 
 %build
-
-# libtool workaround for alphalinux
-%ifarch alpha
-  ARCH_FLAGS="--host=alpha-redhat-linux"
-%endif
-
-CFLAGS="$RPM_OPT_FLAGS" ./configure $ARCH_FLAGS --prefix=%{prefix} --sysconfdir=%{sysconfdir} 
-
-if [ "$SMP" != "" ]; then
-  (make "MAKE=make -k -j $SMP"; exit 0)
-  make
-else
-  make
-fi
+gettextize --copy --force
+LDFLAGS="-s"; export LDFLAGS
+%configure
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make prefix=$RPM_BUILD_ROOT%{prefix} sysconfdir=$RPM_BUILD_ROOT%{sysconfdir} \
-gASQL_Helpdir=$RPM_BUILD_ROOT%{prefix}/share/gnome/help/gASQL \
-gnorbadir=$RPM_BUILD_ROOT%{sysconfdir}/CORBA/servers \
-Applicationsdir=$RPM_BUILD_ROOT%{prefix}/share/gnome/apps/Applications \
-Pixmapdir=$RPM_BUILD_ROOT%{prefix}/share/pixmaps \
-install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	Applicationsdir={_applnkdir}/Applications
+
+gzip -9nf AUTHORS ChangeLog NEWS README TODO
+
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 							  
-%files
-%defattr(-, root, root)
-
-%doc AUTHORS COPYING ChangeLog NEWS README TODO
-%doc examples/ 
-%{prefix}/bin/gasql
-%{prefix}/share/pixmaps/*
-%{prefix}/share/locale/*
-%{prefix}/share/gnome/apps/Applications/gasql.desktop
-%{prefix}/share/gnome/help/gASQL/C/*
-%{prefix}/share/gnome/help/gASQL/fr/*
-%{prefix}/share/gASQL/plugins/*
+%files -f %{name}.lang
+%defattr(644,root,root,755)
+%doc *.gz examples/
+%attr(755,root,root) %{_bindir}/gasql
+%{_datadir}/pixmaps/*
+%{_applnkdir}/Applications/gasql.desktop
+%dir %{_datadir}/gASQL/
+%dir %{_datadir}/gASQL/plugins
+%{_datadir}/gASQL/plugins/*
