@@ -26,7 +26,6 @@ it is still possible to do so).
 
 %build
 gettextize --copy --force
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
