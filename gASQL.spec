@@ -5,11 +5,6 @@ Version:	0.5.3
 Release:	2
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Source0:	http://malerba.linuxave.net/src/%{name}-%{version}.tar.gz
 URL:		http://malerba.linuxave.net/
 BuildRequires:	gettext-devel
