@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://malerba.linuxave.net/src/%{name}-%{version}.tar.gz
+# Source0-md5:	b580c66eaed3db6df872c97bdf931159
 URL:		http://malerba.linuxave.net/
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-db-devel
