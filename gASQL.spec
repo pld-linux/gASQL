@@ -8,7 +8,7 @@ Group:		X11/Applications
 Source0:	http://malerba.linuxave.net/src/%{name}-%{version}.tar.gz
 URL:		http://malerba.linuxave.net/
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-db1-devel
+BuildRequires:	gnome-db-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
