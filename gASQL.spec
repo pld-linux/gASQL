@@ -11,8 +11,6 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-db-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 %define		sysconfdir	/etc/X11/GNOME
 
 %description
