@@ -49,7 +49,7 @@ gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-							  
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz examples
