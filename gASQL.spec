@@ -1,7 +1,7 @@
 Summary:	gASQL - program which helps administer a DBMS database using the gnome-db framework
 Name:		gASQL
 Version:	0.5.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/GNOME/Applications
 Group(pl):	X11/GNOME/Aplikacje
@@ -35,7 +35,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationsdir={_applnkdir}/Applications
+	Applicationsdir={_applnkdir}/Office/Databases
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz examples/
 %attr(755,root,root) %{_bindir}/gasql
 %{_datadir}/pixmaps/*
-%{_applnkdir}/Applications/gasql.desktop
+%{_applnkdir}/Office/Databases/gasql.desktop
 %dir %{_datadir}/gASQL/
 %dir %{_datadir}/gASQL/plugins
 %{_datadir}/gASQL/plugins/*
