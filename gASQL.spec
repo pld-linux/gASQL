@@ -43,8 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir={_applnkdir}/Office/Databases
 
-gzip -9nf AUTHORS ChangeLog NEWS README TODO
-
 %find_lang %{name} --with-gnome
 
 %clean
@@ -52,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz examples
+%doc AUTHORS ChangeLog NEWS README TODO examples
 %attr(755,root,root) %{_bindir}/gasql
 %{_pixmapsdir}/*
 %{_applnkdir}/Office/Databases/gasql.desktop
