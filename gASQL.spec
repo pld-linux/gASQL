@@ -1,5 +1,5 @@
 Summary:	gASQL - program which helps administer a DBMS database using the gnome-db framework
-Summary(pl):	gASQL - program pomagaj±cy administrowaæ baz± danych przy u¿yciu gnome-db
+Summary(pl.UTF-8):   gASQL - program pomagajÄ…cy administrowaÄ‡ bazÄ… danych przy uÅ¼yciu gnome-db
 Name:		gASQL
 Version:	0.5.3
 Release:	2
@@ -21,11 +21,11 @@ database, and some queries, and does the SQL queries instead of the
 user (not having to type all over again those SQL commands, although
 it is still possible to do so).
 
-%description -l pl
-gASQL to program pomagaj±cy administrowaæ systemem baz danych u¿ywaj±c
-¶rodowiska gnome-db. Pamiêta ca³± strukturê bazy, niektóre zapytania,
-a tak¿e wykonuje zapytania SQL zamiast u¿ytkownika (który nie musi
-pisaæ ca³ych komend SQL - ale nadal mo¿e).
+%description -l pl.UTF-8
+gASQL to program pomagajÄ…cy administrowaÄ‡ systemem baz danych uÅ¼ywajÄ…c
+Å›rodowiska gnome-db. PamiÄ™ta caÅ‚Ä… strukturÄ™ bazy, niektÃ³re zapytania,
+a takÅ¼e wykonuje zapytania SQL zamiast uÅ¼ytkownika (ktÃ³ry nie musi
+pisaÄ‡ caÅ‚ych komend SQL - ale nadal moÅ¼e).
 
 %prep
 %setup -q
